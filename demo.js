@@ -1,59 +1,59 @@
-const userdata=[
-    {id:1,
-        name: "ADDUL",
-        gender: "Male",
-        age:20,
-        kam:undefined
-    },
-        {id:2,
-        name: "Rabin",
-        gender: "Male",
-        age:19,
-        kam:"Intern"
-    },
-        {id:3,
-        name: "Srizan",
-        gender: "Male",
-        age:19,
-        kam:"Python Developer"
-    },
-        {id:4,
-        name: "Nabin",
-        gender: "Male",
-        age:19,
-        kam:"Streamer"
-    },
-        {id:5,
-        name: "Rabina",
-        gender: "Female",
-        age:21,
-        kam:undefined
-    },
-        {id:6,
-        name: "Sabina",
-        gender: "Female",
-        age:20,
-        kam:undefined
-    }
-]
-const response={
-    status:200,
-    message:"User data fetched",
-    data:userdata
+// const fname="Abdul"
+// const lname="Kalam"
+
+// const addName=()=>{
+//     return `${fname} ${lname}`
+// }
+// console.log(addName())
+
+
+// const a1=[-3,-2,-1]
+// const a2=[0,1,2]
+// const addArray=()=>{
+//     const res=[...a1,...a2]
+//     return res
+// }
+// console.log(addArray())
+
+
+const userData={
+    nm:"Rabin",
+    email:"bistrabin85@gmail.com",
+    phn:9766536348,
+    hasPassedOut:false,
+    kam:undefined
 }
 
-const fetchUserNames=()=>{
-    if(response.status===200){
-       const res= response.data
-       .filter((user)=>user.kam || user.age>20) 
-       
-       .map((user)=> user.name)
-       return res
+const filterFalseValue=()=>{
+     finalUserData={}
+    for(let key in userData){
+        if(userData[key]){
+            finalUserData={...finalUserData,[key]:userData[key]}
+        }    
+
+    }
+    return finalUserData
+    }
+
+console.log(filterFalseValue())
+
+
+const apiRes={
+    stat:404,
+    msg:"NOT FOUND",
+    data:{}
+}
+let thisFinalUserData={}
+const checkapiRes=()=>{
+    if(apiRes.stat===200 && apiRes.data){
+        thisFinalUserData=thisFinalUserData
     }
     else{
-        const message="API fetch Failed"
-        return message
+        thisFinalUserData=finalUserData
     }
+    return thisFinalUserData
 }
-console.log(fetchUserNames())
+console.log(checkapiRes())
+
+
 
